@@ -25,11 +25,21 @@ def crawlpage(CPUname, CPUpage):
 
     for v in bench_list:
         if v.find('div', class_='col-12 list-col'):
-            if (v.select_one('div:nth-child(3) > span.list-col-text').text.strip() == "Windows"):
-                stscore = v.select_one('div:nth-child(4) > span.list-col-text-score').text.strip()
-                mtscore = v.select_one('div:nth-child(5) > span.list-col-text-score').text.strip()
+            text1 = soup.select('div.col-6 col-md-3 col-lg-2 > span.list-col.text')
+            OS = text1[1]
+            STScore = text1[2]
+            MTScore = text1[3]
+            mylist = [OS, STScore, MTScore]
+            print(mylist)
+            Score_data.append(mylist)
+            '''
+            #if (v.select_one('div:nth-child(3) > span.list-col-text').text.strip() == "Windows"):
+            OS = v.select_one('div:nth-child(3) > span.list-col-text').text.strip()
+            stscore = v.select_one('div:nth-child(4) > span.list-col-text-score').text.strip()
+            mtscore = v.select_one('div:nth-child(5) > span.list-col-text-score').text.strip()
             #mylist = [stscore, mtscore]
-            print(stscore, mtscore)
+            print(OS, stscore, mtscore)
             #Score_data.append(mylist)
+            '''
 
     #return Score_data
