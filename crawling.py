@@ -23,7 +23,7 @@ def crawlpage(CPUname, CPUpage):
 
     Score_data = []
 
-    for i in range(1, 1):
+    for i in range(1, 26):
         OS = soup.select(f'#wrap > div > div > div > div > div.col-9 > div.row > div:nth-child({i}) > div > div > div:nth-child(3) > span.list-col-text')#.text.strip()
         ST = soup.select(f'#wrap > div > div > div > div > div.col-9 > div.row > div:nth-child({i}) > div > div > div:nth-child(4) > span.list-col-text-score')#.text.strip()
         MT = soup.select(f'#wrap > div > div > div > div > div.col-9 > div.row > div:nth-child({i}) > div > div > div:nth-child(5) > span.list-col-text-score')#.text.strip()
