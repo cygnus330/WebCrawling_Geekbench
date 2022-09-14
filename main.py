@@ -26,7 +26,7 @@ print('''
 ░╚═════╝░╚══════╝╚══════╝╚═╝░░╚═╝╚═════╝░╚══════╝╚═╝░░╚══╝░╚════╝░╚═╝░░╚═╝  ░░░╚═╝░░░╚══════╝╚═╝░╚════╝░
 ''')
 print('made by sivcde0405')
-time.sleep(3)
+time.sleep(5)
 
 mem = psutil.virtual_memory()
 print('\n---system info---')
