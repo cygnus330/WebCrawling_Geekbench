@@ -52,7 +52,7 @@ def crawlbenchlen(CPUname, CPUpage):
     a = soup.select_one(f'#wrap > div > div > div > div > div.col-3 > ul > li.list-group-item.d-flex.justify-content-between.align-items-center.current > span').text.strip()
 
     if(a.find('K') != -1):
-        a -= 'K'
-        return int(a*1000)
+        a = a[:-1]
+        return int(float(a)*1000)
     else:
-        return a
+        return int(a)

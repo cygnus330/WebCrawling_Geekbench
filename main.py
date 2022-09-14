@@ -8,14 +8,17 @@ from crawling import crawlbenchlen
 from calculating import calcavg
 from writecell import listtoxlsx
 
-introprog()
+dointroload = 1
+
+if(dointroload):
+    introprog()
+else:
+    print('now loading DB (0%)')
 
 CPU_RAWlist = readCPUlist()
 print('now loading DB (33%)')
-time.sleep(0.5)
 CPU_list = makeCPUlist()
 print('now loading DB (67%)')
-time.sleep(0.5)
 Score_list = makeScorelist()
 print('now loading DB (100%)')
 time.sleep(0.5)
@@ -23,11 +26,11 @@ time.sleep(0.5)
 #print(CPU_list)
 #print('\n----\n')
 #print(Score_list)
-print('now start crawling')
+print('\n\n---now start crawling---')
 time.sleep(0.5)
 
-for i in range(10, 11):#12
-    for j in range(3, 4):#(1, 5)
+for i in range(12):#12
+    for j in range(1, 5):#(1, 5)
         if (CPU_list[i][j] != None):
             print(f'start crawling \"{CPU_list[i][j]}\"')
             #print(' ')
@@ -36,8 +39,9 @@ for i in range(10, 11):#12
             CPU_score = []
 
             benchlen = crawlbenchlen(CPU_list[i][j], 1) // 25
-            for k in range(1, min(benchlen+1, 26)):#(1, 21)
-                print(f'\rnow crawling page {k}', end = "")
+            benchpage = min(benchlen+1, 31)
+            for k in range(1, benchpage):#(1, 31)
+                print(f'\rnow crawling {k} / {benchpage} page', end = "")
                 CPU_score.extend(crawlpage(CPU_list[i][j], k))
             print(f'\rnow appending page', end="")
             for k in range(len(CPU_score)):
@@ -51,7 +55,7 @@ for i in range(10, 11):#12
             print(CPU_scoreMT)
             print(mylist)
             '''
-            print(f'\rCPU Score is {mylist}')
+            print(f'\rCPU \"{CPU_list[i][j]}\"s Score is {mylist} : searched {benchlen} page')
             #print(f'end crawling \"{CPU_list[i][j]}\"')
             Score_list[i][j] = mylist
 
