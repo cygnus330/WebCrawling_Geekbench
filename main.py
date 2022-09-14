@@ -55,7 +55,7 @@ time.sleep(0.5)
 #print(CPU_list)
 #print('\n----\n')
 #print(Score_list)
-print('\rnow start crawling')
+print('now start crawling')
 time.sleep(0.5)
 
 for i in range(12):#12
@@ -70,7 +70,7 @@ for i in range(12):#12
             for k in range(1, 21):#(1, 21)
                 print(f'\rnow crawling page {k}', end = "")
                 CPU_score.extend(crawlpage(CPU_list[i][j], k))
-            print('\rlisting data', end = "")
+            print(f'\rnow appending page', end="")
             for k in range(len(CPU_score)):
                 CPU_scoreST.append(CPU_score[k][0])
                 CPU_scoreMT.append(CPU_score[k][1])
