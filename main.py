@@ -55,7 +55,7 @@ for i in range(12):#12
             print(CPU_scoreMT)
             print(mylist)
             '''
-            print(f'\rCPU \"{CPU_list[i][j]}\"s Score is {mylist} : searched {benchpage} page')
+            print(f'\rCPU \"{CPU_list[i][j]}\"s Score is {mylist} : searched {benchpage} / {max(benchpage, benchlen)} page')
             #print(f'end crawling \"{CPU_list[i][j]}\"')
             Score_list[i][j] = mylist
 
