@@ -1,4 +1,7 @@
 import time
+import platform
+
+import psutil
 
 from readcell import readCPUlist
 from readcell import makeScorelist
@@ -6,9 +9,6 @@ from readcell import makeCPUlist
 from crawling import crawlpage
 from calculating import calcavg
 from writecell import listtoxlsx
-import pandas as pd
-import openpyxl
-#from crawling import
 
 print('''
 ░██╗░░░░░░░██╗███████╗██████╗░░█████╗░██████╗░░█████╗░░██╗░░░░░░░██╗██╗░░░░░██╗███╗░░██╗░██████╗░
@@ -26,20 +26,30 @@ print('''
 ░╚═════╝░╚══════╝╚══════╝╚═╝░░╚═╝╚═════╝░╚══════╝╚═╝░░╚══╝░╚════╝░╚═╝░░╚═╝  ░░░╚═╝░░░╚══════╝╚═╝░╚════╝░
 ''')
 print('made by sivcde0405')
+time.sleep(3)
 
-print('\n\n')
-time.sleep(0.5)
-print('now loading DB (0%)', end = "")
+mem = psutil.virtual_memory()
+print('\n---system info---')
+print('OS                   :\t', platform.system())
+print('OS Version           :\t', platform.version())
+print('Process information  :\t', platform.processor())
+print('Process Architecture :\t', platform.machine())
+print('RAM                  :\t %.4f GB'%(mem.total/1024**3))
+
+
+print('\n\n---now start---')
+time.sleep(3)
+print('now loading DB (0%)')
 time.sleep(0.5)
 
 CPU_RAWlist = readCPUlist()
-print('\rnow loading DB (33%)', end = "")
+print('now loading DB (33%)')
 time.sleep(0.5)
 CPU_list = makeCPUlist()
-print('\rnow loading DB (67%)', end = "")
+print('now loading DB (67%)')
 time.sleep(0.5)
 Score_list = makeScorelist()
-print('\rnow loading DB (100%)', end = "")
+print('now loading DB (100%)')
 time.sleep(0.5)
 
 #print(CPU_list)
