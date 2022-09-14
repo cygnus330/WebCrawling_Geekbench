@@ -4,6 +4,7 @@ from readcell import readCPUlist
 from readcell import makeScorelist
 from readcell import makeCPUlist
 from crawling import crawlpage
+from crawling import crawlbenchlen
 from calculating import calcavg
 from writecell import listtoxlsx
 
@@ -25,8 +26,8 @@ time.sleep(0.5)
 print('now start crawling')
 time.sleep(0.5)
 
-for i in range(12):#12
-    for j in range(1, 5):#(1, 5)
+for i in range(10, 11):#12
+    for j in range(3, 4):#(1, 5)
         if (CPU_list[i][j] != None):
             print(f'start crawling \"{CPU_list[i][j]}\"')
             #print(' ')
@@ -34,7 +35,8 @@ for i in range(12):#12
             CPU_scoreMT = []
             CPU_score = []
 
-            for k in range(1, 21):#(1, 21)
+            benchlen = crawlbenchlen(CPU_list[i][j], 1) // 25
+            for k in range(1, min(benchlen+1, 26)):#(1, 21)
                 print(f'\rnow crawling page {k}', end = "")
                 CPU_score.extend(crawlpage(CPU_list[i][j], k))
             print(f'\rnow appending page', end="")
