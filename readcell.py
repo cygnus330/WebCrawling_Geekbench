@@ -12,5 +12,24 @@ def readCPUlist():
     ws = wb.active #활성화된 시트
     return ws
 
+def makeCPUlist():
+    CPU_RAWlist = readCPUlist()
+    CPU_list = []
+    for gen in range(2, 14):
+        mylist = []
+        mylist.append(gen-1)
+        mylist.append(CPU_RAWlist.cell(row=gen, column=3).value)
+        mylist.append(CPU_RAWlist.cell(row=gen, column=4).value)
+        mylist.append(CPU_RAWlist.cell(row=gen, column=5).value)
+        mylist.append(CPU_RAWlist.cell(row=gen, column=6).value)
+        CPU_list.append(mylist)
+    return CPU_list
+
+def makeScorelist():
+    Score_list = []
+    for gen in range(2, 14):
+        Score_list.append([gen-1, [0.0, 0.0], [0.0, 0.0], [0.0, 0.0], [0.0, 0.0]])
+    return Score_list
+
 
 

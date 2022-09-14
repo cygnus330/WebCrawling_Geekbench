@@ -9,7 +9,7 @@ import time
 
 def crawlpage(CPUname, CPUpage):
     options = Options()
-    #options.add_argument('headless')
+    options.add_argument('headless')
 
     chromedriver_autoinstaller.install()
     driver = webdriver.Chrome(options=options)
@@ -24,11 +24,16 @@ def crawlpage(CPUname, CPUpage):
     Score_data = []
 
     for i in range(1, 26):
-        OS = soup.select(f'#wrap > div > div > div > div > div.col-9 > div.row > div:nth-child({i}) > div > div > div:nth-child(3) > span.list-col-text')#.text.strip()
-        ST = soup.select(f'#wrap > div > div > div > div > div.col-9 > div.row > div:nth-child({i}) > div > div > div:nth-child(4) > span.list-col-text-score')#.text.strip()
-        MT = soup.select(f'#wrap > div > div > div > div > div.col-9 > div.row > div:nth-child({i}) > div > div > div:nth-child(5) > span.list-col-text-score')#.text.strip()
-        mylist = [OS, ST, MT]
-        print(mylist)
-        Score_data.append(mylist)
+        Nm = soup.select_one(f'#wrap > div > div > div > div > div.col-9 > div.row > div:nth-child({i}) > div > div > div.col-12.col-lg-4 > span.list-col-model').text.strip()
+        OS = soup.select_one(f'#wrap > div > div > div > div > div.col-9 > div.row > div:nth-child({i}) > div > div > div:nth-child(3) > span.list-col-text').text.strip()
+        ST = soup.select_one(f'#wrap > div > div > div > div > div.col-9 > div.row > div:nth-child({i}) > div > div > div:nth-child(4) > span.list-col-text-score').text.strip()
+        MT = soup.select_one(f'#wrap > div > div > div > div > div.col-9 > div.row > div:nth-child({i}) > div > div > div:nth-child(5) > span.list-col-text-score').text.strip()
+        if(OS == 'Windows'):
+            if(Nm.find(CPUname) != -1):
+                #print(Nm, OS, ST, MT)
+                mylist = [int(ST), int(MT)]
+                Score_data.append(mylist)
+
+    driver.quit()
 
     return Score_data
