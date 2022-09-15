@@ -3,6 +3,7 @@ import importlib
 import numpy as np
 
 from readcell import read_cell_line
+from writecell import listtoxlsx
 
 #importlib.reload(plt)
 
@@ -55,11 +56,11 @@ for j in range(4):
 '''
 print(STscore)
 print(MTscore)
-
+'''
 for i in range(4):
     listtoxlsx(STscore[i], f'output\STscorei{9-2*i}.xlsx')
     listtoxlsx(MTscore[i], f'output\MTscorei{9-2*i}.xlsx')
-'''
+
 
 
 
