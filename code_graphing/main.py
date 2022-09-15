@@ -3,10 +3,8 @@ import importlib
 import numpy as np
 
 from readcell import read_cell_line
-#from graph2 import graph20
-from writecell import listtoxlsx
 
-importlib.reload(plt)
+#importlib.reload(plt)
 
 draw_what = 1
 
@@ -83,7 +81,7 @@ plt.yscale('linear')
 plt.legend(ncol=1, frameon=True, shadow=True)
 plt.xticks(np.arange(2008, 2024, 2))
 plt.yticks(np.arange(0, 22000, 2000))
-plt.show()
+#plt.show()
 plt.savefig('output\MT Performance (date, line)')
 
 
@@ -104,7 +102,7 @@ plt.yscale('linear')
 plt.legend(ncol=1, frameon=True, shadow=True)
 plt.xticks(np.arange(2008, 2024, 2))
 plt.yticks(np.arange(0, 2400, 200))
-plt.show()
+#plt.show()
 plt.savefig('output\ST Performance (date, line)')
 
 
@@ -126,7 +124,7 @@ plt.yscale('log')
 plt.legend(ncol=1, frameon=True, shadow=True)
 plt.xticks(np.arange(2008, 2024, 2))
 #plt.yticks(np.arange(0, 22000, 2000))
-plt.show()
+#plt.show()
 plt.savefig('output\MT Performance (date, log)')
 
 plt.clf()
@@ -146,7 +144,7 @@ plt.yscale('log')
 plt.legend(ncol=1, frameon=True, shadow=True)
 plt.xticks(np.arange(2008, 2024, 2))
 #plt.yticks(np.arange(0, 2400, 200))
-plt.show()
+#plt.show()
 plt.savefig('output\ST Performance (date, log)')
 
 
@@ -168,7 +166,7 @@ plt.yscale('linear')
 plt.legend(ncol=1, frameon=True, shadow=True)
 plt.xticks(np.arange(1, 13, 1))
 plt.yticks(np.arange(0, 2400, 200))
-plt.show()
+#plt.show()
 plt.savefig('output\ST Performance (gen, line)')
 
 plt.clf()
@@ -188,7 +186,7 @@ plt.yscale('linear')
 plt.legend(ncol=1, frameon=True, shadow=True)
 plt.xticks(np.arange(1, 13, 1))
 plt.yticks(np.arange(0, 22000, 2000))
-plt.show()
+#plt.show()
 plt.savefig('output\MT Performance (gen, line)')
 
 
@@ -210,8 +208,9 @@ plt.yscale('log')
 plt.legend(ncol=1, frameon=True, shadow=True)
 plt.xticks(np.arange(1, 13, 1))
 #plt.yticks(np.arange(0, 2400, 200))
-plt.show()
+#plt.show()
 plt.savefig('output\ST Performance (gen, log)')
+
 
 plt.clf()
 plt.plot(MTscore[0][2], MTscore[0][0], 'o-', label='i9', color='red')
@@ -230,5 +229,5 @@ plt.yscale('log')
 plt.legend(ncol=1, frameon=True, shadow=True)
 plt.xticks(np.arange(1, 13, 1))
 #plt.yticks(np.arange(0, 2400, 200))
-plt.show()
+#plt.show()
 plt.savefig('output\MT Performance (gen, log)')
