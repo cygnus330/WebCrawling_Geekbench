@@ -3,6 +3,7 @@ from intro import introprog
 from readcell import readCPUlist
 from readcell import makeScorelist
 from readcell import makeCPUlist
+from readcell import makeTestlist
 from crawling import crawlpage
 from crawling import crawlbenchlen
 from calculating import calcavg
@@ -10,7 +11,7 @@ from writecell import listtoxlsx
 
 dointroload = 1
 
-if(dointroload):
+if(dointroload == 1):
     introprog()
 else:
     print('now loading DB (0%)')
@@ -18,6 +19,7 @@ else:
 CPU_RAWlist = readCPUlist()
 print('now loading DB (33%)')
 CPU_list = makeCPUlist()
+CPU_test_list = makeTestlist()
 print('now loading DB (67%)')
 Score_list = makeScorelist()
 print('now loading DB (100%)')
@@ -30,7 +32,7 @@ print('\n\n---now start crawling---')
 time.sleep(0.5)
 
 for i in range(12):#12
-    for j in range(1, 5):#(1, 5)
+    for j in range(1, 5):#(1, 6)
         if (CPU_list[i][j] != None):
             print(f'start crawling \"{CPU_list[i][j]}\"')
             #print(' ')
@@ -55,9 +57,10 @@ for i in range(12):#12
             print(CPU_scoreMT)
             print(mylist)
             '''
-            print(f'\rCPU \"{CPU_list[i][j]}\"s Score is {mylist} : searched {benchpage} / {max(benchpage, benchlen)} page')
+            print(f'\rCPU \"{CPU_list[i][j]}\"s Score is {mylist} : searched {benchpage} / {max(30, benchlen)} page')
             #print(f'end crawling \"{CPU_list[i][j]}\"')
             Score_list[i][j] = mylist
+            CPU_test_list[i][j] = max(30, benchlen)
 
 #print(Score_list)
 Score_list_ST = []
@@ -85,6 +88,7 @@ print(Score_list_MT)
 '''
 listtoxlsx(Score_list_ST, 'STScore.xlsx')
 listtoxlsx(Score_list_MT, 'MTScore.xlsx')
+listtoxlsx(CPU_test_list, 'Test_repeat.xlsx')
 
 print('END!')
 print('now closing..')

@@ -31,5 +31,8 @@ def makeScorelist():
         Score_list.append([gen-1, [0.0, 0.0], [0.0, 0.0], [0.0, 0.0], [0.0, 0.0]])
     return Score_list
 
-
-
+def makeTestlist():
+    test_list = []
+    for gen in range(2,14):
+        test_list.append([gen-1, 0, 0, 0, 0])
+    return test_list
