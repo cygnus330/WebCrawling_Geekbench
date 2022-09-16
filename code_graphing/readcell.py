@@ -9,3 +9,15 @@ def read_cell_line(line, cellname, start, end):
         mylist.append(ws.cell(row=gen, column=line).value)
 
     return mylist
+
+
+
+list = []
+for i in range(len(이름))
+    mylist = [djjfksfosdodfsfhesihfdshfjsfjksf]
+    list.append(mylist)
+
+list.sort(key = )
+
+df = pd.DataFrame.from_records(list)
+df.to_excel(cellname)
