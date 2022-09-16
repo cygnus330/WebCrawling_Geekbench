@@ -3,6 +3,7 @@
 
 made by sivcde0405
 
+
 필요한 라이브러리
 ```pandas
 selenium
@@ -10,4 +11,7 @@ chromedriver_autoinstaller
 psutil
 bs4
 openpyxl
+numpy
+matplotlib
+importlib
 ```
